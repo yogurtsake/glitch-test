@@ -1,24 +1,31 @@
-#!/bin/bash
+# #!/bin/bash
 
-# Exit early on errors
-set -eu
+# # Exit early on errors
+# set -eu
 
-# Python buffers stdout. Without this, you won't see what you "print" in the Activity Logs
-export PYTHONUNBUFFERED=true
+# # Python buffers stdout. Without this, you won't see what you "print" in the Activity Logs
+# export PYTHONUNBUFFERED=true
 
-# Install Python 3 virtual env
-VIRTUALENV=.data/venv
+# # Install Python 3 virtual env
+# VIRTUALENV=.data/venv
 
-if [ ! -d $VIRTUALENV ]; then
-  python3 -m venv $VIRTUALENV
+# if [ ! -d $VIRTUALENV ]; then
+#   python3 -m venv $VIRTUALENV
+# fi
+
+# if [ ! -f $VIRTUALENV/bin/pip ]; then
+#   curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | $VIRTUALENV/bin/python
+# fi
+
+# # Install the requirements
+# $VIRTUALENV/bin/pip install -r requirements.txt
+
+# # Run a glorious Python 3 server
+# $VIRTUALENV/bin/python3 app.py
+
+MD5=$(md5sum requirements.txt | cut -f1 -d' ')
+if ! [ -d ".data/$MD5-site-packages" ]; then
+    rm -rf .data/*-site-packages
+    pip3 install -U -r requirements.txt -t ".data/$MD5-site-packages" 
 fi
-
-if [ ! -f $VIRTUALENV/bin/pip ]; then
-  curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | $VIRTUALENV/bin/python
-fi
-
-# Install the requirements
-$VIRTUALENV/bin/pip install -r requirements.txt
-
-# Run a glorious Python 3 server
-$VIRTUALENV/bin/python3 app.py
+exec env PYTHONPATH="$PWD/.data/$MD5-site-packages" python3 run.py
