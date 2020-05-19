@@ -1,3 +1,4 @@
 flask
 python-dotenv
 livereload==2.5.1
+bootstrap-flask

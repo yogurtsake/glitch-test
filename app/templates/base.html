@@ -1,14 +1,46 @@
-<html>
-    <head>
-      {% if title %}
-      <title>{{ title }} - Anesthesia for Dentistry</title>
-      {% else %}
-      <title>Welcome to Anesthesia for Dentistry</title>
-      {% endif %}
-    </head>
-    <body>
-        <div>Anesthesia for Dentistry: <a href="/index">Home</a></div>
-        <hr>
-        {% block content %}{% endblock %}
-    </body>
+<!doctype html>
+<html lang="en">
+
+<head>
+  {% block head %}
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  {% block styles %}
+  <!-- Bootstrap CSS -->
+  {{ bootstrap.load_css() }}
+  {% endblock %}
+
+  <title>Your page title</title>
+  {% endblock %}
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  {% from 'bootstrap/nav.html' import render_nav_item %}
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Anesthesia For Dentistry</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        {{ render_nav_item('index', 'Home') }}
+        {{ render_nav_item('index', 'About') }}
+        {{ render_nav_item('index', 'Pricing') }}
+        {{ render_nav_item('index', 'Forms') }}
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Your page content -->
+  {% block content %}{% endblock %}
+
+  {% block scripts %}
+  <!-- Optional JavaScript -->
+  {{ bootstrap.load_js() }}
+  {% endblock %}
+</body>
+
 </html>
