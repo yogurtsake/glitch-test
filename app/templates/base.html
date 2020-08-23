@@ -1,46 +1,57 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang='en'>
 <head>
-  {% block head %}
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% block head %}
+    <!-- Required meta tags -->
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>S. James Park – Anesthesia For Dentistry</title>
 
-  {% block styles %}
-  <!-- Bootstrap CSS -->
-  {{ bootstrap.load_css() }}
-  {% endblock %}
-
-  <title>Your page title</title>
-  {% endblock %}
+    {% block styles %}
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
+    {% endblock styles %}
+    {% endblock head %}
 </head>
-
 <body>
-  <!-- Navigation Bar -->
-  {% from 'bootstrap/nav.html' import render_nav_item %}
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Anesthesia For Dentistry</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        {{ render_nav_item('index', 'Home') }}
-        {{ render_nav_item('index', 'About') }}
-        {{ render_nav_item('index', 'Pricing') }}
-        {{ render_nav_item('index', 'Forms') }}
-      </ul>
+    <div class="uk-position-top" id="top">
+        <!-- Main Navbar -->
+        <nav class="uk-navbar-container uk-navbar-transparent uk-light" data-uk-navbar="dropbar: false;">
+            <div class="uk-navbar-left">
+                <ul class="uk-navbar-nav uk-margin-left">
+                    <li class="uk-logo">
+                        <a class="uk-text-large" data-uk-scroll="" href="#">S. James Park</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right uk-margin-right">
+                <ul class="uk-navbar-nav uk-visible@s">
+                    <li><a class="uk-text-large" href="#">about</a></li>
+                    <li><a class="uk-text-large" href="#">FAQs</a></li>
+                </ul>
+                <a href="#" class="uk-navbar-toggle uk-hidden@s" uk-navbar-toggle-icon uk-toggle="target: #sidenav"></a>
+            </div>
+        </nav>
     </div>
-  </nav>
 
-  <!-- Your page content -->
-  {% block content %}{% endblock %}
+    <div id="sidenav" uk-offcanvas="flip: true" class="uk-offcanvas">
+        <div class="uk-offcanvas-bar">
+            <ul class="uk-nav">
+                <li><a class="uk-text-large" href="#">about</a></li>
+                <li><a class="uk-text-large" href="#">blog</a></li>
+            </ul>
+        </div>
+    </div>
 
-  {% block scripts %}
-  <!-- Optional JavaScript -->
-  {{ bootstrap.load_js() }}
-  {% endblock %}
+    <!-- Your page content -->
+    {% block content %}
+    {% endblock content %}
+
+    {% block scripts %}
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.4/dist/js/uikit-icons.min.js"></script>
+    {% endblock scripts %}
 </body>
-
 </html>

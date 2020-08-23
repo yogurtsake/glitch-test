@@ -1,8 +1,95 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Hi, {{ user.username }}!</h1>
-    {% for post in posts %}
-    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
-    {% endfor %}
-{% endblock %}
+<header id="hero-header">
+  <div id="change-her-the-bg-image"
+    class="uk-background-norepeat uk-background-cover uk-background-center-center uk-section uk-section-large uk-flex uk-flex-middle"
+    uk-parallax="bgx: 0, 0" data-uk-height-viewport="offset-top: false">
+
+    <div class="uk-width-1-1">
+      <!-- hero container -->
+      <div class="uk-container uk-container-large">
+        <!-- Heading: Add margin top for h1 - like this the text looks more center v beacuse the navbar is transpernt -->
+        <h1 class="uk-margin-small uk-margin-medium-top uk-width-large@m uk-text-left@m uk-text-center uk-h6 uk-light"
+          data-uk-parallax="opacity: 1,0;viewport: 0.95;media: @s">
+          <!-- extra span for uk-heading-line -->
+          <span>Test</span>
+        </h1>
+        <h2 class="uk-margin-small uk-text-left@m uk-text-center uk-heading-large uk-light"
+          data-uk-parallax="opacity: 1,0; easing: 0.8;viewport: 0.95;media: @s">
+          Test
+        </h2>
+        <!-- Arrow: With link to #main section + uk-scroll="" for smooth scrolling -->
+        <div class="uk-margin uk-text-left@m uk-text-center"
+          data-uk-parallax="y: 0,200;opacity: 1,0;easing: 0.3;target: !.uk-section;media: @s">
+          <a uk-icon="icon: arrow-down;ratio: 1.5" class="uk-icon-link uk-icon uk-light" href="#section-one"
+            data-uk-scroll=""></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- change her the bg image + The overlay color/opacity/direction (under style="") -->
+  <!-- Use "data-uk-height-viewport" for full 100VH hero (entire viewport) -->
+</header>
+
+<!-- Demo docs content -->
+<div id="section-one" class="uk-section uk-section-default">
+  <div class="uk-container">
+    <div class="faq">
+      <h2>Frequently Asked Questions</h2>
+      <ul uk-accordion="collapsible: false">
+        <li>
+          <a class="uk-accordion-title" href="#">Item 1</a>
+          <div class="uk-accordion-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.</p>
+          </div>
+        </li>
+        <li>
+          <a class="uk-accordion-title" href="#">Item 2</a>
+          <div class="uk-accordion-content">
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat.
+              Duis aute irure dolor reprehenderit.</p>
+          </div>
+        </li>
+        <li>
+          <a class="uk-accordion-title" href="#">Item 3</a>
+          <div class="uk-accordion-content">
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occaecat cupidatat proident.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Demo docs content -->
+<div id="section-two" class="uk-section uk-section-default">
+  <div class="uk-container">
+    <h1>UIkit vs. Bootstrap: A comparison</h1>
+
+    <div class="uk-child-width-1-2" uk-grid>
+      <div>
+        <h3>UIkit Slideshow</h3>
+
+      </div>
+      <div>
+        <h3>Bootstrap Carousel</h3>
+
+      </div>
+    </div>
+
+    <div class="uk-child-width-1-2" uk-grid>
+      <div>
+
+      </div>
+      <div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock content %}

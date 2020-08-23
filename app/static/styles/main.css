@@ -1,0 +1,38 @@
+body,
+html {
+    height: 100vh;
+}
+
+header nav a {
+    color: #FFFFFF !important;
+}
+
+.uk-navbar-container {
+    transition: background-color 0.5s ease !important;
+}
+
+#hero-header #change-her-the-bg-image {
+    background-color: #6FBEC6;
+}
+
+#section-one {
+    /* height:100vh; */
+    background-color: #ffffff;
+    /*for demo only*/
+    overflow: auto;
+    margin: auto;
+}
+
+.faq {
+    width: 85%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    /* More style: */
+    /* background-color: #888; */
+}
+
+#section-two {
+    height: 100vh;
+    background-color: #6FBEC6;
+}
